@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+        integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static '/scorepochsapp/csvstyle.css' %}">
+    <title>Scorepochs CSV Import</title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/scorepochsapp/favicon.ico' %}" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="main__content">
+            <div id="page-title">
+                <h1>CSV IMPORT CONFIGURATION</h1>
+            </div>
+            <form action="/scorepochsapp/csvstore" method="post" name="csvconfig" id="csvconfig">
+                {% csrf_token %}
+                <div class="section-header">
+                    schema
+                </div>
+                <div id="schema">
+                    <div class="schema-option">
+                        <div class="schema-option__element">
+                            <div class="schema-option__element__radio">
+                                <div>
+                                    <input type="radio" name="schema" value="header" required>
+                                </div>
+                            </div>
+                            <div class="schema-option__element__card">
+                                <div class="schema-option__element__card-title">with header, channels in columns</div>
+                                <div class="code">
+                                    Fc5,Fc3,Fc1(\n)</br>
+                                    0.0000,0.0010,0.0020(\n)</br>
+                                    0.0001,0.0011,0.0021(\n)</br>
+                                    0.0002,0.0012,0.0022(\n)</br>
+                                    0.0003,0.0013,0.0023(\n)</br>
+                                    0.0004,0.0014,0.0024(\n)</br>
+                                </div>
+                                <div class="caption">
+                                    <p>The first line is the header and defines the channel names.</p>
+                                    <p>Each line contains the values ​​of all the channels taken at a certain time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schema-option">
+                        <div class="schema-option__element">
+                            <div class="schema-option__element__radio">
+                                <div>
+                                    <input type="radio" name="schema" value="no-header-channels-columns" required>
+                                </div>
+                            </div>
+                            <div class="schema-option__element__card">
+                                <div class="schema-option__element__card-title">no header, channels in columns</div>
+                                <div class="code">
+                                    0.0000,0.0010,0.0020(\n)</br>
+                                    0.0001,0.0011,0.0021(\n)</br>
+                                    0.0002,0.0012,0.0022(\n)</br>
+                                    0.0003,0.0013,0.0023(\n)</br>
+                                    0.0004,0.0014,0.0024(\n)</br>
+                                </div>
+                                <div class="caption">
+                                    Each line contains the values ​​of all the channels taken at a certain time.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schema-option">
+                        <div class="schema-option__element">
+                            <div class="schema-option__element__radio">
+                                <div>
+                                    <input type="radio" name="schema" value="no-header-channels-rows" required>
+                                </div>
+                            </div>
+                            <div class="schema-option__element__card">
+                                <div class="schema-option__element__card-title">no header, channels in lines</div>
+                                <div class="code">
+                                    0.0000,0.0001,0.0002(\n)</br>
+                                    0.0010,0.0011,0.0012(\n)</br>
+                                    0.0020,0.0021,0.0022(\n)</br>
+                                    0.0030,0.0031,0.0032(\n)</br>
+                                    0.0040,0.0041,0.0042(\n)</br>
+                                </div>
+                                <div class="caption">
+                                    Each line contains the values ​​relating to the same channel.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    separator
+                </div>
+                <div id="separator">
+                    <div>
+                        <div class="separator-option">
+                            <input type="radio" name="separator" value="," required>,
+                        </div>
+                    </div>
+                    <div>
+                        <div class="separator-option">
+                            <input type="radio" name="separator" value=";" required>;
+                        </div>
+                    </div>
+                    <div>
+                        <div class="separator-option">
+                            <input type="radio" name="separator" value="space" required>space
+                        </div>
+                    </div>
+                    <div>
+                        <div class="separator-option">
+                            <input type="radio" name="separator" value="tab" required>tab
+                        </div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    decimal point
+                </div>
+                <div id="decimal-point">
+                    <div>
+                        <div class="decimal-point-option">
+                            <input type="radio" name="decimal-point" value="." required>.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="decimal-point-option">
+                            <input type="radio" name="decimal-point" value="," required>,
+                        </div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    sampling frequency [Hz]
+                </div>
+                <div id="sampling-frequency">
+                    <div>
+                        <input type="number" class="input-number" name="sampling-frequency" min="1" max="1000000"
+                            required>
+                    </div>
+                </div>
+                <input type="text" name='source-file-name' value="{{ source_file_name }}" hidden>
+                <input type="text" name='session-timestamp' value="{{ session_timestamp }}" hidden>
+                <div id="continue">
+                    <div>
+                        <input type="submit" value="CONTINUE" id="continue-button">
+                    </div>
+            </form>
+            <span style="width: 50px;"></span>
+        </div>
+    </div>
+    </div>
+    <script>
+        var schema = document.csvconfig["schema"];
+        var decimal_point = document.csvconfig["decimal-point"];
+        var separator = document.csvconfig["separator"];
+        var button = document.getElementById("continue-button");
+        document.csvconfig.addEventListener("change", validate);
+
+        function validate() {
+            button.setAttribute("disabled", true);
+            for (let i = 0; i < separator.length; i++) {
+                separator[i].removeAttribute("disabled");
+            }
+            for (let i = 0; i < decimal_point.length; i++) {
+                decimal_point[i].removeAttribute("disabled");
+            }
+            if ((separator.value != '') && (decimal_point.value != '')) {
+                if (separator.value == decimal_point.value) {
+                    alert("Separator must be different from decimal point");
+                    button.setAttribute("disabled", true);
+                } else {
+                    if (schema.value != '') {
+                        button.removeAttribute("disabled");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

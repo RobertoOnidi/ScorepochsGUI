@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <title>Scorepochs scores</title>
+    <style>
+      html, body{
+        width: 100%;
+      }
+
+      .scores-table{
+        width: 20%; 
+        border: 3px solid black;
+      }
+
+      .table-header{
+        font-weight: bold;
+      }
+
+      th{
+        width: 50%;
+        border: 1px solid green;
+      }
+    
+      td{
+        text-align: center;
+        border: 1px solid green;
+      }
+    </style>
+</head>
+<body>
+  <div>
+    <div>
+      <h1>Scorepochs results</h1>
+    </div>
+  </div>
+  
+  <table class="scores-table" id="scores-table">
+    <tr class="table-header">
+      <th>Score</th>
+      <th>Epoch</th>
+    </tr>
+  </table>
+
+  <data id="scorepochs-scores" value='{{ scorepochs_scores }}'></data>
+
+    <script>
+      var data_container = document.getElementById("scorepochs-scores"); //tag data
+      var json_obj = data_container.value;
+      const json_data = JSON.parse(json_obj);
+      var epochs_idx = json_data['idx'];
+      var epochs_scores = json_data['scores'];
+      var epochs = epochs_idx.length;
+      var scores_table = document.getElementById("scores-table");
+      var scores_table_new_row
+
+      for (let i=0;i < epochs;i++){
+        scores_table_new_row = document.createElement("tr");
+        scores_table_new_row.innerHTML = `<td>${epochs_scores[epochs_idx[i]]}</td><td>${epochs_idx[i]+1}</td>`;
+        scores_table.appendChild(scores_table_new_row);
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+        integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--<link rel="stylesheet" href="{% static '/scorepochsapp/style.css' %}">-->
+    <link rel="stylesheet" href="{% static '/scorepochsapp/exportstyle.css' %}">
+    <title>Scorepochs Export</title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/scorepochsapp/favicon.ico' %}" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="main__content">
+            <div id="page-title">
+                <h1>FILE EXPORT</h1>
+            </div>
+            <form action="/scorepochsapp/export" method="post" name="export">
+                {% csrf_token %}
+                <div class="section-header">
+                    export
+                </div>
+                <div class="radio" id="export">
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="export-data" value="entire file" required>entire recording
+                        </div>
+                    </div>
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="export-data" value="selected epochs" required>selected epochs
+                        </div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    file format
+                </div>
+                <div class="radio" id="decimal-point">
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="file-format" value="edf" required>edf
+                        </div>
+                    </div>
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="file-format" value="csv" required>csv
+                        </div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    separator
+                </div>
+                <div class="radio" id="separator">
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="separator" value="," required>,
+                        </div>
+                    </div>
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="separator" value=";" required>;
+                        </div>
+                    </div>
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="separator" value="space" required>space
+                        </div>
+                    </div>
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="separator" value="tab" required>tab
+                        </div>
+                    </div>
+                </div>
+                <div class="section-header">
+                    csv decimal point
+                </div>
+                <div class="radio" id="decimal-point">
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="decimal-point" value="." required>.
+                        </div>
+                    </div>
+                    <div>
+                        <div class="radio-option">
+                            <input type="radio" name="decimal-point" value="," required>,
+                        </div>
+                    </div>
+                </div>
+                <input type="text" name="session-timestamp" value="{{ session_timestamp }}" hidden>
+                <div id="continue">
+                    <div>
+                        <input type="submit" value="CONTINUE" id="continue-button" disabled>
+                    </div>
+            </form>
+            <span style="width: 50px;"></span>
+        </div>
+    </div>
+    <script>
+        var export_data = document.export["export-data"];
+        var file_format = document.export["file-format"];
+        var decimal_point = document.export["decimal-point"];
+        var separator = document.export["separator"];
+        var button = document.getElementById("continue-button");
+        document.export.addEventListener("change", validate);
+
+        function validate() {
+            if (file_format.value == 'edf') { // edf
+                button.setAttribute("disabled", true);
+                for (let i = 0; i < separator.length; i++) {
+                    separator[i].setAttribute("disabled", true);
+                }
+                for (let i = 0; i < decimal_point.length; i++) {
+                    decimal_point[i].setAttribute("disabled", true);
+                }
+                if (export_data.value != '') {
+                    button.removeAttribute("disabled");
+                }
+            } else { // Abilita il csv
+                button.setAttribute("disabled", true);
+                for (let i = 0; i < separator.length; i++) {
+                    separator[i].removeAttribute("disabled");
+                }
+                for (let i = 0; i < decimal_point.length; i++) {
+                    decimal_point[i].removeAttribute("disabled");
+                }
+                if ((separator.value != '') && (decimal_point.value != '')) {
+                    if (separator.value == decimal_point.value) {
+                        alert("Separator must be different from decimal point");
+                        button.setAttribute("disabled", true);
+                    } else {
+                        if (export_data.value != '') {
+                            button.removeAttribute("disabled");
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

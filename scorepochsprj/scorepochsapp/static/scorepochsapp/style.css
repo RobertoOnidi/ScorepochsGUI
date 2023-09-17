@@ -1,0 +1,539 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #ccc; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #323031; 
+    border-radius: 10px;
+}
+
+/* index.html */
+#main{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#main__content{
+    width: 80%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #323031;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*font-size: medium;*/
+}
+
+#index__header{
+    width: 100%;
+    height: 50%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#index__form-section{
+    width: 100%;
+    height: 50%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: small;
+}
+
+#index__logo{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#index__logo__title{
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
+    font-size: x-large;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+#index__hero{
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px;
+    font-size: larger;
+    font-style: italic;
+}
+
+#index__logo__title h1{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#index__hero h2{
+    font-size: 1.2em;
+    font-weight: lighter;
+}
+
+#index__form-section__title{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+}
+
+#index__form-section__add-files{
+    width: 100%;
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.index__form-section__add-file-button{
+    width: 200px;
+    height: 50px;
+    border: 1p solid #aaa;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+#index__form-section__continue{
+    width: 100%;
+    margin: 0px;
+    margin-top: 10%;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: end;
+}
+
+#submit-button{
+    width: 200px;
+    height: 50px;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 2px solid white;
+    background-color: #f3632b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#submit-button:hover{
+    background-color: #f32b2b;
+}
+
+label :hover{
+    cursor: pointer;
+    color: red;
+}
+
+
+
+/* gui.html */
+/*OK VALIDATO */
+#nav{
+    width: 15%;
+    height: 100%; /*1200px;*/
+    margin: 0;
+    padding: 0;
+    background-color: #323031;
+    float: left;
+}
+/*OK VALIDATO */
+#nav__logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*OK VALIDATO */
+#nav__title{
+    color: white;
+    font-weight: lighter;
+    text-align: center;
+}
+/*OK VALIDATO */
+#nav__buttons{
+    display: flex;
+    flex-direction: column;
+}
+/*OK VALIDATO */
+.nav-button{
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid white;
+    background-color: #f3632b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: small;
+}
+/*OK VALIDATO */
+.nav-button a{
+    text-decoration: none;
+    color: white;
+}
+/*OK VALIDATO */
+.nav-button:hover{
+    background-color: #f32b2b;
+}
+/*OK VALIDATO */
+#nav__file-info{
+    margin: 0px;
+    margin-top: 10px;
+    padding: 10px;
+    border:#aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: small;
+    text-align: center;
+}
+/*OK VALIDATO */
+.nav__file-info__item{
+    margin: 0px;
+    padding: 5px;
+    font-size: small;
+}
+/*OK VALIDATO */
+.nav__file-info__item-label{
+    font-weight: bold;
+}
+/*OK VALIDATO */
+#working-area{
+    width: 85%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #92baa8;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+/*OK VALIDATO */
+#tools-bar{
+    width: 100%;
+    height: 10%;
+    min-height: 50px;
+    /*background-color: #414c46;*/
+    background-color: #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*OK VALIDATO */
+.tools-bar__tool{
+    height: 60%;
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*OK VALIDATO */
+.tool-label{
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    align-items: center;
+    font-size: small;
+    font-weight: bold;
+}
+/*OK VALIDATO */
+.tool-button{
+    width: 40px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: small;
+    text-align: center;
+}
+/*OK VALIDATO */
+.tool-button:hover{
+    color: red;
+    cursor: pointer;
+}
+/*OK VALIDATO */
+.tool-input-number{
+    width: 50px;
+    height: 80%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-weight: bold;
+}
+/*OK VALIDATO */
+.tool-input-select{
+    width: 80px;
+    height: 80%;
+    padding: 2px;
+    border: 1px solid grey;
+    border-radius: 5px;    
+    font-weight: bold;
+}
+/*OK VALIDATO */
+#chart-frame-container{
+    width: 100%;
+    height: 90%;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    position: relative;
+}
+/*OK VALIDATO */
+.wrapper{
+    width: 90%;
+    height: 4%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+/*OK VALIDATO */
+#epochs-labels-wrapper{
+    top: 0;
+    left: 5%;
+    overflow: hidden;
+}
+/*OK VALIDATO */
+#scores-wrapper{
+    top: 4%;
+    left: 5%;
+    overflow: hidden;
+}
+/*OK VALIDATO */
+#slider-wrapper{
+    top: 8%;
+    left: 5%;
+    overflow: hidden;
+}
+/*OK VALIDATO */
+#channels-labels-wrapper{
+    width: 4%;
+    height: 83%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    position: absolute;
+    top: 12%;
+    left: 1%;
+    overflow: hidden;
+}
+/*OK VALIDATO */
+#channels-labels{
+    display: flex;
+    flex-direction: column;
+}
+/*OK VALIDATO */
+.channel-label{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: xx-small;
+}
+/*OK VALIDATO */
+.channel-label:hover{
+    color: red;
+    cursor: pointer;
+}
+/*OK VALIDATO */
+.channel-area{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    flex: 1;
+    border: 1px solid grey;
+}
+/*OK VALIDATO */
+#epochs-labels, #scores, #slider, #channels-labels, #chart-frame{
+    width: 0px; /* Defined dynamically by JS */
+    height: 0px; /* Defined dynamically by JS */
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+/*OK VALIDATO */
+#epochs-too-many-message{
+    width: 90%;
+    text-align: center;
+    padding: 5px 0px;
+}
+/*OK VALIDATO */
+.epochs-frame__area{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    opacity: 0.2;
+    border: 1px solid black;
+    position: absolute;
+}
+/*OK VALIDATO */
+.epochs-label,.scores{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    color: black;
+    text-align: center;
+    font-size: small;
+    font-weight: 100;
+}
+/*OK VALIDATO */
+.epochs-label:hover{
+    color: red;
+    cursor: pointer;
+}
+/*OK VALIDATO */
+.cursor:hover{
+    cursor: move;
+}
+/*OK VALIDATO */
+.cursor{
+    /*width: defined by js */
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    background-color: #f3632b;
+    /*border: 2px solid grey;*/
+    position: absolute;
+    text-align: center;
+    top: 0px;
+}
+/*OK VALIDATO */
+.cursor:hover{
+    cursor: move;
+}
+/*OK VALIDATO */
+#chart-frame-wrapper{
+    width: 90%;
+    height: 83%;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 12%;
+    left: 5%;
+    overflow: hidden;
+    border: 1px solid black;
+}
+/*OK VALIDATO */
+#chart-frame__svg-layer, #chart-frame__markers-layer, #chart-frame__channels-layer, #chart-frame__epochs-layer{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+/*OK VALIDATO */
+.chart-frame__channels-layer{
+    display: flex;
+    flex-direction: column;
+}
+/*OK VALIDATO */
+.highlighted-red{
+    background-color: red;
+    opacity: 0.2;
+    transition: background-color .5s;
+}
+/*OK VALIDATO */
+.highlighted-green{
+    background-color: green;
+    opacity: 0.2;
+    transition: background-color .5s;
+}
+/*OK VALIDATO */
+.highlighted{
+    background-color: blue;
+    opacity: 0.5;
+    transition: background-color .5s;
+}
+/*OK VALIDATO */
+#x-scrollbar-wrapper{
+    width: 90%;
+    height: 2%;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 96%;
+    left: 5%;
+    overflow: auto;
+    /*border: 1px solid magenta;*/
+}
+/*OK VALIDATO */
+#y-scrollbar-wrapper{
+    width: 1%;
+    height: 83%;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 12%;
+    left: 96%;
+    overflow: auto;
+    /*border: 1px solid magenta;*/
+}
+/*OK VALIDATO */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

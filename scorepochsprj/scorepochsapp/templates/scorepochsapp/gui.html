@@ -1,0 +1,267 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"
+        integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static '/scorepochsapp/style.css' %}">
+    <title>Scorepochs GUI</title>
+    <link rel="shortcut icon" type="image/png" href="{% static '/scorepochsapp/favicon.ico' %}" />
+</head>
+
+<body>
+    <!-- Sezione nav -->
+    <div id="nav">
+        <div id="nav__logo">
+            <a href="/scorepochsapp"><img src="{% static '/scorepochsapp/99828824.png' %}" alt="" width="160"
+                    height="160"></a>
+        </div>
+        <div id="nav__title">
+            <h1>Scorepochs</h1>
+        </div>
+        <div id="nav__buttons">
+            <!-- pulsante PSD per epoche -->
+            <div>
+                <form action="/scorepochsapp/psd" target="_blank" method="post" id="psd-epochs-button-form">
+                    {% csrf_token %}
+                    <input type="text" name="psd-epochs-selected" id="psd-ep-epochs-selected" value="" hidden>
+                    <input type="text" name="psd-channels-selected" id="psd-ep-channels-selected" value="" hidden>
+                    <input type="text" name="psd-epoch-duration" id="psd-ep-epoch-duration" value="" hidden>
+                    <input type="text" name="psd-mode" value="psd-ep" hidden>
+                    <input type="text" name="session-timestamp" id="psd-ep-session-timestamp" value="" hidden>
+                    <input type="submit" value="PSD ep" class="nav-button">
+                </form>
+            </div>
+            <!-- pulsante PSD per canali-->
+            <div>
+                <form action="/scorepochsapp/psd" target="_blank" method="post" id="psd-channels-button-form">
+                    {% csrf_token %}
+                    <input type="text" name="psd-epochs-selected" id="psd-ch-epochs-selected" value="" hidden>
+                    <input type="text" name="psd-channels-selected" id="psd-ch-channels-selected" value="" hidden>
+                    <input type="text" name="psd-epoch-duration" id="psd-ch-epoch-duration" value="" hidden>
+                    <input type="text" name="psd-mode" value="psd-ch" hidden>
+                    <input type="text" name="session-timestamp" id="psd-ch-session-timestamp" value="" hidden>
+                    <input type="submit" value="PSD ch" class="nav-button">
+                </form>
+            </div>
+            <!-- pulsante Correlation Matrix -->
+            <div>
+                <form action="/scorepochsapp/corrmatrix" target="_blank" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="corrmatrix-epoch-duration" id="corrmatrix-epoch-duration" value="" hidden>
+                    <input type="text" name="session-timestamp" id="corrmatrix-session-timestamp" value="" hidden>
+                    <input type="submit" value="Correlation Matrix" class="nav-button">
+                </form>
+            </div>
+            <!-- pulsante risultati Scorepochs -->
+            <div>
+                <form action="/scorepochsapp/scorepochs" target="_blank" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="scorepochs-epoch-duration" id="scorepochs-epoch-duration" value="" hidden>
+                    <input type="text" name="session-timestamp" id="scorepochs-session-timestamp" value="" hidden>
+                    <input type="submit" value="Score" class="nav-button">
+                </form>
+            </div>
+            <!-- pulsante vettori punteggio Scorepochs -->
+            <div>
+                <form action="/scorepochsapp/scorevector" target="_blank" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="scorevector-epoch-duration" id="scorevector-epoch-duration" value=""
+                        hidden>
+                    <input type="text" name="session-timestamp" id="scorevector-session-timestamp" value="" hidden>
+                    <input type="submit" value="Score Vector" class="nav-button">
+                </form>
+            </div>
+            <!-- pulsante distribuzione punteggio Scorepochs -->
+            <div>
+                <form action="/scorepochsapp/scoredistribution" target="_blank" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="scoredistribution-epoch-duration" id="scoredistribution-epoch-duration"
+                        value="" hidden>
+                    <input type="text" name="session-timestamp" id="scoredistribution-session-timestamp" value=""
+                        hidden>
+                    <input type="submit" value="Score Distribution" class="nav-button">
+                </form>
+            </div>
+        </div>
+        <!-- sezione info file -->
+        <div id="nav__file-info">
+            <h2>File informations</h2>
+            <!-- nome file -->
+            <div class="nav__file-info__item">
+                <div class="nav__file-info__item-label">File name</div>
+                <div id="nav__file-info__file-name">-</div>
+            </div>
+            <!-- numero canali -->
+            <div class="nav__file-info__item">
+                <div class="nav__file-info__item-label">Channels number</div>
+                <div id="nav__file-info__channels-number">-</div>
+            </div>
+            <!-- numero campioni -->
+            <div class="nav__file-info__item">
+                <div class="nav__file-info__item-label">Samples number</div>
+                <div id="nav__file-info__samples-number">-</div>
+            </div>
+            <!-- frequenza di campionamento -->
+            <div class="nav__file-info__item">
+                <div class="nav__file-info__item-label">Sampling frequency</div>
+                <div id="nav__file-info__sampling-frequency">-</div>
+            </div>
+            <!-- durata totale -->
+            <div class="nav__file-info__item">
+                <div class="nav__file-info__item-label">Total duration</div>
+                <div id="nav__file-info__total-duration">-</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione strumenti e grafico -->
+    <div id="working-area">
+        <!-- Sezione strumenti -->
+        <div id="tools-bar">
+            <!-- durata delle epoche -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">Epochs duration [s]</div>
+                <!--Nota: la durata massima impostabile per una epoca viene aggiornata dallo script js in base alla durata totale della registrazione -->
+                <input class="tool-input-number" id="epochs-duration" name="epochs-duration" type="number">
+            </div>
+            <!-- seleziona tutte le epoche -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">EP</div>
+                <div class="tool-button" onclick="epochs.selectAllEpochs()">
+                    <img src="{% static '/scorepochsapp/all-checked.png' %}" alt="" width="16" height="16">
+                </div>
+                <div class="tool-button" onclick="epochs.deselectAllEpochs()">
+                    <img src="{% static '/scorepochsapp/all-unchecked.png' %}" alt="" width="16" height="16">
+                </div>
+            </div>
+            <!-- seleziona tutti i canali -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">CH</div>
+                <div class="tool-button" onclick="channels.selectAllChannels()">
+                    <img src="{% static '/scorepochsapp/all-checked.png' %}" alt="" width="16" height="16">
+                </div>
+                <div class="tool-button" onclick="channels.deselectAllChannels()">
+                    <img src="{% static '/scorepochsapp/all-unchecked.png' %}" alt="" width="16" height="16">
+                </div>
+            </div>
+            <!-- ampiezza tracce -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">Amplitude</div>
+                <input class="tool-input-number" id="amplitude" name="amplitude" type="number">
+            </div>
+            <!-- punteggio di soglia -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">Score Threshold</div>
+                <input class="tool-input-number" id="score-threshold" name="score-threshold" type="number">
+            </div>
+            <!-- selezione n migliori epoche  -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">Best Epochs</div>
+                <input class="tool-input-number" id="best-epochs" name="best-epochs" type="number">
+                <div class="tool-button">
+                    <img src="{% static '/scorepochsapp/addscorepochspassed.png' %}" alt="" width="26"
+                    height="26" id="export-button" onclick="onScorepochsResultAddToExportClick()">
+                </div>
+            </div>
+            <!-- filtro dati -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">Filter</div>
+                <select class="tool-input-select" id="filter" name="filter">
+                    <input type="button" value="apply" onclick="onFilterApply()">
+                </select>
+            </div>
+            <!-- sezione azioni A-B -->
+            <div class="tools-bar__tool">
+                <div class="tool-label">A-B</div>
+                <!-- crop -->
+                <div class="tool-button">
+                    <input type="image" src="{% static '/scorepochsapp/crop.png' %}" alt="Submit" width="20" height="20"
+                        onclick="onCrop()">
+                </div>
+                <!-- delete -->
+                <div class="tool-button">
+                    <input type="image" src="{% static '/scorepochsapp/delete.png' %}" alt="Submit" width="20"
+                        height="20" onclick="onDelete()">
+                </div>
+            </div>
+            <!-- export -->
+            <div class="tools-bar__tool">
+                <div class="tool-button">
+                    <form action="/scorepochsapp/exportsettings" target="_blank" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="export-cfg" id="export-cfg" value="" hidden>
+                        <input type="text" name="session-timestamp" id="export-session-timestamp" value="" hidden>
+                        <input type="image" src="{% static '/scorepochsapp/export.png' %}" alt="Submit" width="20"
+                            height="20" id="export-button">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- sezione grafico -->
+        <div id="chart-frame-container">
+            <!-- contenitore etichette canali -->
+            <div id="channels-labels-wrapper">
+                <div id="channels-labels"></div>
+            </div>
+            <!-- contenitore etichette epoche -->
+            <div class="wrapper" id="epochs-labels-wrapper">
+                <div id="epochs-too-many-message" hidden>
+                    <img src="{% static '/scorepochsapp/warning.png' %}" alt="" width="16" height="16">
+                    Too many epochs/scores to visualize. Zoom to expand them
+                </div>
+                <div id="epochs-labels"></div>
+            </div>
+            <!-- contenitore etichette punteggi -->
+            <div class="wrapper" id="scores-wrapper">
+                <div id="scores"></div>
+            </div>
+            <!-- contenitore slider A-B -->
+            <div class="wrapper" id="slider-wrapper">
+                <div id="slider">
+                    <div class="cursor" id="cursor1" draggable="false">
+                        A
+                    </div>
+                    <div class="cursor" id="cursor2" draggable="false">
+                        B
+                    </div>
+                </div>
+            </div>
+            <!-- contenitore grafico -->
+            <div id="chart-frame-wrapper">
+                <div id="chart-frame">
+                    <!-- contenitore tracce grafiche svg -->
+                    <div id="chart-frame__svg-layer"></div>
+                    <!-- contenitore indicatori A-B -->
+                    <div id="chart-frame__markers-layer"></div>
+                    <!-- contenitore riquadri canali -->
+                    <div class="chart-frame__channels-layer" id="chart-frame__channels-layer"></div>
+                    <!-- contenitore riquadri epoche -->
+                    <div id="chart-frame__epochs-layer"></div>
+                </div>
+            </div>
+            <!-- contenitore slider scroll finestra orizzontale -->
+            <div id="x-scrollbar-wrapper">
+                <div id="x-scrollbar"></div>
+            </div>
+            <!-- contenitore slider scroll finestra verticale -->
+            <div id="y-scrollbar-wrapper">
+                <div id="y-scrollbar"></div>
+            </div>
+        </div>
+    </div>
+
+    <data id="filter-presets" value='{{ filter_presets }}'></data>
+    <data id="session-timestamp" value="{{ session_timestamp }}"></data>
+
+    <script>var CSRF_TOKEN = '{{ csrf_token }}';</script>
+    <script type="text/javascript" src="{% static '/scorepochsapp/classes.js' %}"></script>
+    <script type="text/javascript" src="{% static '/scorepochsapp/script.js' %}"></script>
+</body>
+</html>

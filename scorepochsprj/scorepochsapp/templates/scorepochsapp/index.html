@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static '/scorepochsapp/style.css' %}">
+        <title>Scorepochs</title>
+        <link rel="shortcut icon" type="image/png" href="{% static '/scorepochsapp/favicon.ico' %}"/>
+    </head>
+<body>
+    <div id="main">
+        <div id="main__content">
+            <div id="index__header">
+                <div id="index__logo">
+                    <img src="{% static '/scorepochsapp/99828824.png' %}" alt="Scorepochs logo" width="160" height="160">
+                </div>
+                <div id="index__logo__title">
+                    <h1>Scorepochs</h1>
+                </div>
+                <div id="index__hero">
+                    <h2>A Computer-Aided Scoring Tool for Resting-State M/EEG Epochs</h2>
+                </div>
+            </div>
+            <div id="index__form-section">
+                <div id="index__form-section__title">
+                        <h1>Load an M/EEG file in .edf or .csv format</h1>
+                </div>
+
+                <form enctype="multipart/form-data" action="/scorepochsapp/edfstore" method="post" id="edf-form">
+                    {% csrf_token %}
+                    <input type="text" name="file-type" id="file-type" value="edf" hidden>
+                    <div id="index__form-section__add-files">
+                        <label for="edf_file_select">
+                            <div class="index__form-section__add-file-button">
+                                <img src="{% static '/scorepochsapp/add-file.png' %}" alt="Scorepochs logo" width="30" height="30">
+                                <span style="width:10px;"></span>
+                                load .edf file
+                            </div>
+                        </label>
+                        <input type="file" id="edf_file_select" name="edf_file_select" accept=".edf" hidden>
+                        <input type="text" id="edf-user-timestamp" name="session-timestamp" hidden>
+                </form>
+
+                <span style="width: 10%"></span>
+
+                <form enctype="multipart/form-data" action="/scorepochsapp/csvimport" method="post" id="csv-form">
+                    {% csrf_token %}
+                    <input type="text" name="file-type" id="file-type" value="csv" hidden>
+                        <label for="csv_file_select">
+                            <div class="index__form-section__add-file-button">
+                                <img src="{% static '/scorepochsapp/add-file.png' %}" alt="Scorepochs logo" width="30" height="30">
+                                <span style="width: 10px;"></span>
+                                load .csv file
+                            </div>
+                        </label>
+                        <input type="file" id="csv_file_select" name="csv_file_select" accept=".csv" hidden>
+                        <input type="text" id="csv-user-timestamp" name="session-timestamp" hidden>
+                    </div>
+                </form>
+
+                <div id="index__form-section__continue">
+                        <div>
+                            <input type="submit" value="CONTINUE" id="submit-button" disabled>
+                        </div>
+                        <span style="width: 50px;"></span>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <script>
+        //var file_type = document.getElementById("file-type");
+        var continue_button = document.getElementById("submit-button");
+        var edf_file_select = document.getElementById("edf_file_select");
+        var csv_file_select = document.getElementById("csv_file_select");
+        var edf_user_timestamp = document.getElementById("edf-user-timestamp");
+        var csv_user_timestamp = document.getElementById("csv-user-timestamp");
+        var edf_form = document.getElementById("edf-form");
+        var csv_form = document.getElementById("csv-form");
+        var file_uploaded = "";
+
+        function edf_selected_handler(){
+            //form_section_file_type.value = "edf";
+            continue_button.removeAttribute("disabled");
+            file_uploaded = "edf";
+        }
+
+        function csv_selected_handler(){
+            //form_section_file_type.value = "csv";
+            continue_button.removeAttribute("disabled");
+            file_uploaded = "csv";
+        }
+
+        function form_submit(){
+            if (file_uploaded == "edf"){
+                edf_user_timestamp.value = String(Date.now())
+                edf_form.submit();
+            } else if (file_uploaded == "csv") {
+                csv_user_timestamp.value = String(Date.now())
+                csv_form.submit();
+            }
+        }
+
+        edf_file_select.addEventListener("change",edf_selected_handler);
+        csv_file_select.addEventListener("change",csv_selected_handler);
+        continue_button.addEventListener("click",form_submit);
+    </script>
+</body>
+</html>
