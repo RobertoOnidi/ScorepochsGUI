@@ -9,3 +9,10 @@ It's released as both Python or Matlab scripts and is intended for CLI (Command 
 This project provides a GUI (Graphical User Interface) for Scorepochs, allowing several advantages: graphical representation of the M/EEG recording imported, user interaction with Scorepochs' parameters, multi-user usage.
 
 The GUI is developed as a web application, and it's made up of a front end application and a backend application. Both these aspects are included in this project. Django web framework was chosen as a web server. It creates a localhost webserver, which supplies web pages to the client and executes back end calculations.
+
+# Project Description
+
+| Description | Screenshoot |
+|-----------------------|---|
+|Main GUI | ![scorepochs-gui](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/af24120a-aab5-4713-bf79-6c6fad4bbf09)|
+|---|---|
