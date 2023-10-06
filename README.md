@@ -15,9 +15,7 @@ The GUI is developed as a web application, and it's made up of a front end appli
 | Description | Screenshoot |
 |-----------------------|---|
 |Main GUI | ![scorepochs-gui](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/af24120a-aab5-4713-bf79-6c6fad4bbf09)|
-|Import allows recordings in EDF and CSV format | ![scorepochs-index](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/beae2fa6-ccec-48bf-8796-311633b3f171)|
-|CSV settings allows to import several csv configurations | ![scorepochs-csv-import-cfg](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/d8fada6c-35c3-452a-b3ee-d03bc1895a96)|
-| GUI shows a score for each epoch and allows to highlights epochs with better scores  | ![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/7b0391be-2d73-49c1-bab0-adedb3f0bcfe)|
+| Scorepochs GUI Introduction | https://vimeo.com/871738632?share=copy |
 
 
 
