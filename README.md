@@ -15,7 +15,7 @@ The GUI is developed as a web application, and it's made up of a front end appli
 | Description | Screenshoot |
 |-----------------------|---|
 |Main GUI | ![scorepochs-gui](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/af24120a-aab5-4713-bf79-6c6fad4bbf09)|
-| Scorepochs GUI Introduction | https://vimeo.com/871738632?share=copy |
+| Scorepochs GUI Introduction | <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/871738632?badge=0&amp;autopause=0&amp;quality_selector=1&amp;progress_bar=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Scorepochs GUI Introduction"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> |
 
 
 
