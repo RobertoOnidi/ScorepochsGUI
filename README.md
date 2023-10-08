@@ -30,7 +30,7 @@ C:\>python -V
 Python 3.11.3
 (In this case Python 3.11.3 has been installed)
 
-2.Upgrade pip (package installer for Python)
+2. Upgrade pip (package installer for Python)
 C:\>python -m pip install --upgrade pip
 
 3. Create a folder named "scorepochs" in root directory. This will contain the Django project
