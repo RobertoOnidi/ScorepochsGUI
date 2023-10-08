@@ -12,10 +12,11 @@ The GUI is developed as a web application, and it's made up of a front end appli
 
 # Project Description
 
-| Description | Screenshoot |
-|-----------------------|---|
-|Main GUI | ![scorepochs-gui](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/af24120a-aab5-4713-bf79-6c6fad4bbf09)|
-| Scorepochs GUI Introduction video | https://vimeo.com/871738632 |
+Here is a screenshot of the main view of the Scorepochs' GUI.
+
+![scorepochs-gui](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/af24120a-aab5-4713-bf79-6c6fad4bbf09)
+
+[Here is a brief Scorepochs GUI Introduction video](https://vimeo.com/871738632)
 
 
 
