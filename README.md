@@ -74,38 +74,7 @@ Copy this folder and overwrite the c:\scorepochs\scorepochsprj folder, answering
 
 13. The entire folder tree should now be appear as follow (some minor files has been omitted)
 
-C\
-└ scorepochs
-├ venv
-└ scorepochsprj
-		├ manage.py
-├ scorepochsprj
-		│	└ settings.py
-│	└ urls.py
-└ scorepochsapp
-	├ static
-	│	└ scorepochsapp
-	│		└ classes.js
-	│		└ csvstyle.css
-	│		└ exportstyle.css
-	│		└ script.js
-	│		└ style.css
-	├ templates
-	│	└ scorepochsapp
-	│		└ csvimport.html
-	│		└ export.html
-	│		└ gui.html
-	│		└ index.html
-	│		└ opengui.html
-	│		└ scorepochs.html
-  ├ analysis.py
-  ├ datastorage.py
-  ├ export.py
-  ├ filedecode.py
-  ├ scorepochs.py
-  ├ scorepochscfg.py
-  ├ urls.py
-  └ views.py
+
 
 14. Start the web server
 Activate the Venv if not already activated
