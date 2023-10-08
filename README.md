@@ -59,10 +59,10 @@ pip install EDFlib-Python
     django-admin startproject scorepochsprj
 
 10. Create the Django App
-    Change the current folder to Django project's folder (in which it should be manage.py)
+    Change the current folder to Django project's folder (in which it should be manage.py)    
     cd scorepochsprj
     
-    Create the app named "scorepochsapp"
+    Create the app named "scorepochsapp"    
     python manage.py startapp scorepochsapp
     
 12. Download the Django Project from this repository as zip file
