@@ -18,6 +18,108 @@ Here is a screenshot of the main view of the Scorepochs' GUI.
 
 [Here is a brief Scorepochs GUI Introduction video](https://vimeo.com/871738632)
 
+#Django Project Installation
+This project is delivered in the form of a Django Project. The following instructions describe how to setup the Django project into a local web server accessible from localhost in a Windows OS machine, assuming you have the administration rights.
+
+Prerequisite:
+A Python installation. Python version 3.11 has been used for developing this project.
+
+
+1. Check your Python installation
+C:\>python -V
+Python 3.11.3
+(In this case Python 3.11.3 has been installed)
+
+2.Upgrade pip (package installer for Python)
+C:\>python -m pip install --upgrade pip
+
+3. Create a folder named "scorepochs" in root directory. This will contain the Django project
+C:\>mkdir scorepochs
+
+4. Change the current folder
+C:\>cd scorepochs
+
+5. Create a Venv (Virtual Environment) named "venv"
+python -m venv venv
+
+6. Activate the Venv
+venv\Scripts\activate
+The activation of the Venv is highlighted by prompt change as follow:
+(venv) C:\scorepochs>
+
+7. Install Django
+pip install django
+
+8. Install the others package required by the project
+pip install mne
+pip install plotly
+pip install EDFlib-Python
+
+9. Create the Django project
+django-admin startproject scorepochsprj
+
+10. Create the Django App
+Change the current folder to Django project's folder (in which it should be manage.py)
+cd scorepochsprj
+
+Create the app named "scorepochsapp"
+python manage.py startapp scorepochsapp
+
+11. Download the Django Project from this repository as zip file
+
+12. Unzip the downloaded file, then open the inner folders until you see the "scorepochs" folder as follow
+![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/e579982a-70d1-424e-b8a2-5eefe609e745)
+
+Copy this folder and overwrite the c:\scorepochs\scorepochsprj folder, answering yes to overwrite every file too.
+
+13. The entire folder tree should now be appear as follow (some minor files has been omitted)
+
+C\
+└ scorepochs
+├ venv
+└ scorepochsprj
+		├ manage.py
+├ scorepochsprj
+		│	└ settings.py
+│	└ urls.py
+└ scorepochsapp
+	├ static
+	│	└ scorepochsapp
+	│		└ classes.js
+	│		└ csvstyle.css
+	│		└ exportstyle.css
+	│		└ script.js
+	│		└ style.css
+	├ templates
+	│	└ scorepochsapp
+	│		└ csvimport.html
+	│		└ export.html
+	│		└ gui.html
+	│		└ index.html
+	│		└ opengui.html
+	│		└ scorepochs.html
+  ├ analysis.py
+  ├ datastorage.py
+  ├ export.py
+  ├ filedecode.py
+  ├ scorepochs.py
+  ├ scorepochscfg.py
+  ├ urls.py
+  └ views.py
+
+14. Start the web server
+Activate the Venv if not already activated
+
+
+
+16. 
+
+
+
+
+
+
+
 
 
 
