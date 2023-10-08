@@ -74,6 +74,8 @@ pip install EDFlib-Python
 
 13. The entire folder tree should now be appear as follow (some minor files has been omitted)
 
+    ![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/673fa2e7-ccf3-4e02-bd95-fac682052a26)
+
 
 
 14. Start the web server
