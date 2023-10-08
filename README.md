@@ -56,21 +56,23 @@ pip install plotly
 pip install EDFlib-Python
 
 9. Create the Django project
-django-admin startproject scorepochsprj
+    django-admin startproject scorepochsprj
 
 10. Create the Django App
     Change the current folder to Django project's folder (in which it should be manage.py)
+    
     cd scorepochsprj
 
     Create the app named "scorepochsapp"
+    
     python manage.py startapp scorepochsapp
 
-11. Download the Django Project from this repository as zip file
+12. Download the Django Project from this repository as zip file
 
-12. Unzip the downloaded file, then open the inner folders until you see the "scorepochs" folder as follow
-![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/e579982a-70d1-424e-b8a2-5eefe609e745)
+13. Unzip the downloaded file, then open the inner folders until you see the "scorepochs" folder as follow
+    ![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/e579982a-70d1-424e-b8a2-5eefe609e745)
 
-Copy this folder and overwrite the c:\scorepochs\scorepochsprj folder, answering yes to overwrite every file too.
+    Copy this folder and overwrite the c:\scorepochs\scorepochsprj folder, answering yes to overwrite every file too.
 
 13. The entire folder tree should now be appear as follow (some minor files has been omitted)
 
