@@ -26,44 +26,44 @@ A Python installation. Python version 3.11 has been used for developing this pro
 
 
 1. Check your Python installation    
-C:\>python -V    
+**C:\>python -V**    
 Python 3.11.3
 (In this case Python 3.11.3 has been installed)
 
 2. Upgrade pip (package installer for Python)    
-C:\>python -m pip install --upgrade pip
+   **python -m pip install --upgrade pip**
 
-3. Create a folder named "scorepochs" in root directory. This will contain the Django project    
-C:\>mkdir scorepochs
+3. Create a folder named "scorepochs" in root directory C:\. This will contain the Django project    
+   **mkdir scorepochs**
 
 4. Change the current folder    
-C:\>cd scorepochs
+   **cd scorepochs**
 
 5. Create a Venv (Virtual Environment) named "venv"    
-python -m venv venv
+   **python -m venv venv**
 
 6. Activate the Venv    
-venv\Scripts\activate
-The activation of the Venv is highlighted by prompt change as follow:    
-(venv) C:\scorepochs>
+   **venv\Scripts\activate**
+   The activation of the Venv is highlighted by prompt change as follow:    
+   (venv) C:\scorepochs>
 
 7. Install Django    
-pip install django
+   **pip install django**
 
 8. Install the others package required by the project    
-pip install mne    
-pip install plotly    
-pip install EDFlib-Python    
+   **pip install mne**    
+   **pip install plotly**    
+   **pip install EDFlib-Python**        
 
 9. Create the Django project    
-    django-admin startproject scorepochsprj
+    **django-admin startproject scorepochsprj**
 
 10. Create the Django App    
     Change the current folder to Django project's folder (in which it should be manage.py)    
-    cd scorepochsprj
+    **cd scorepochsprj**
     
     Create the app named "scorepochsapp"    
-    python manage.py startapp scorepochsapp
+    **python manage.py startapp scorepochsapp**
     
 12. Download the Django Project from this repository as zip file
 
@@ -80,9 +80,9 @@ pip install EDFlib-Python
     Activate the Venv if not already activated (steps no. 4 and 6)    
 
     Change the current folder    
-    cd C:\scorepochs\scorepochsprj    
+    **cd C:\scorepochs\scorepochsprj**    
 
     Start the web server    
-    python manage.py runserver
+    **python manage.py runserver**
 
 15. Open a new window in a web browser, and go to http://127.0.0.1:8000/scorepochsapp
