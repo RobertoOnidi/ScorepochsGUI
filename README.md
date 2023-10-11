@@ -18,7 +18,7 @@ Here is a screenshot of the main view of the Scorepochs' GUI.
 
 [Here is a brief Scorepochs GUI Introduction video](https://vimeo.com/871738632)
 
-#Django Project Installation
+# Django Project Installation
 This project is delivered in the form of a Django Project. The following instructions describe how to setup the Django project into a local web server accessible from localhost in a Windows OS machine, assuming you have the administration rights.
 
 Prerequisite:
