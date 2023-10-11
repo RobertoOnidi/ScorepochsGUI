@@ -26,39 +26,39 @@ A Python installation. Python version 3.11 has been used for developing this pro
 
 
 1. Check your Python installation    
-C:\>python -V
+C:\>python -V    
 Python 3.11.3
 (In this case Python 3.11.3 has been installed)
 
-2. Upgrade pip (package installer for Python)
+2. Upgrade pip (package installer for Python)    
 C:\>python -m pip install --upgrade pip
 
-3. Create a folder named "scorepochs" in root directory. This will contain the Django project
+3. Create a folder named "scorepochs" in root directory. This will contain the Django project    
 C:\>mkdir scorepochs
 
-4. Change the current folder
+4. Change the current folder    
 C:\>cd scorepochs
 
-5. Create a Venv (Virtual Environment) named "venv"
+5. Create a Venv (Virtual Environment) named "venv"    
 python -m venv venv
 
-6. Activate the Venv
+6. Activate the Venv    
 venv\Scripts\activate
-The activation of the Venv is highlighted by prompt change as follow:
+The activation of the Venv is highlighted by prompt change as follow:    
 (venv) C:\scorepochs>
 
-7. Install Django
+7. Install Django    
 pip install django
 
-8. Install the others package required by the project
-pip install mne
-pip install plotly
-pip install EDFlib-Python
+8. Install the others package required by the project    
+pip install mne    
+pip install plotly    
+pip install EDFlib-Python    
 
-9. Create the Django project
+9. Create the Django project    
     django-admin startproject scorepochsprj
 
-10. Create the Django App
+10. Create the Django App    
     Change the current folder to Django project's folder (in which it should be manage.py)    
     cd scorepochsprj
     
