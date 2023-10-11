@@ -45,7 +45,7 @@ A Python installation. Python version 3.11 has been used for developing this pro
    **python -m venv venv**
 
 7. Activate the Venv    
-   **venv\Scripts\activate**
+   **venv\Scripts\activate**    
    The activation of the Venv is highlighted by prompt change as follow:    
    (venv) C:\scorepochs>
 
