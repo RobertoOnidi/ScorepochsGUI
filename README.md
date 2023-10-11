@@ -25,7 +25,7 @@ Prerequisite:
 A Python installation. Python version 3.11 has been used for developing this project.
 
 
-1. Check your Python installation
+1. Check your Python installation    
 C:\>python -V
 Python 3.11.3
 (In this case Python 3.11.3 has been installed)
