@@ -24,8 +24,8 @@ This project is delivered in the form of a Django Project. The following instruc
 Prerequisite:
 A Python installation. Python version 3.11 has been used for developing this project. The following commands must be applied in the same sequence as described. 
 
-1. Change to the root folder
-   **cd C:\ **
+1. Change to the root folder    
+   **cd C:\\**
 
 2. Check your Python installation    
    **python -V**    
