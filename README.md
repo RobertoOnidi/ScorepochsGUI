@@ -1,7 +1,8 @@
 # ScorepochsGUI
-[Scorepochs](https://github.com/smlacava/scorepochs/tree/master/Python) is an algorithm developed by the Department of Electrical and Electronic Engineering of the University of Cagliari, which allows experts in EEG and MEG diagnostic techniques to be supported in the selection of segments (epochs) of M/EEG recordings.
+[Scorepochs](https://github.com/smlacava/scorepochs/tree/master/Python) is an algorithm developed by the Department of Electrical and Electronic Engineering of the University of Cagliari, which allows experts in EEG and MEG diagnostic techniques to be supported in the selection of segments (epochs) of M/EEG recordings, indicating the epochs with the least probability of containing an artefact and therefore most suitable for the study.
 
-It represents the attempt to create an automatic, objective procedure that guarantees the repeatability of the evaluations, indicating the epochs with the least probability of containing an artefact and therefore most suitable for the study.
+
+It represents the attempt to create an automatic yet objective procedure that guarantees the repeatability of the evaluations.
 
 It's released as both Python or Matlab scripts and is intended for CLI (Command Line Interface) usage.
 
