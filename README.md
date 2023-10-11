@@ -36,7 +36,7 @@ A Python installation. Python version 3.11 has been used for developing this pro
 3. Upgrade pip (package installer for Python)    
    **python -m pip install --upgrade pip**
 
-4. Create a folder named "scorepochs" in root directory C:\. This will contain the Django project    
+4. Create a folder named "scorepochs". This will contain the Django project    
    **mkdir scorepochs**
 
 5. Change the current folder    
@@ -75,7 +75,7 @@ A Python installation. Python version 3.11 has been used for developing this pro
 
     Copy this folder and overwrite the c:\scorepochs\scorepochsprj folder, answering yes to overwrite every file too.
 
-14. The entire folder tree should now be appear as follow (some minor files has been omitted)
+14. The entire folder tree should be appear now as follow (some minor files has been omitted)
 
     ![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/673fa2e7-ccf3-4e02-bd95-fac682052a26)
 
