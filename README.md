@@ -77,12 +77,12 @@ pip install EDFlib-Python
     ![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/673fa2e7-ccf3-4e02-bd95-fac682052a26)
 
 14. Start the web server    
-Activate the Venv if not already activated (steps no. 4 and 6)    
+    Activate the Venv if not already activated (steps no. 4 and 6)    
 
-Change the current folder
-cd C:\scorepochs\scorepochsprj    
+    Change the current folder    
+    cd C:\scorepochs\scorepochsprj    
 
-Start the web server    
-python manage.py runserver    
+    Start the web server    
+    python manage.py runserver
 
 15. Open a new window in a web browser, and go to http://127.0.0.1:8000/scorepochsapp
