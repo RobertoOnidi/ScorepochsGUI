@@ -22,43 +22,45 @@ Here is a screenshot of the main view of the Scorepochs' GUI.
 This project is delivered in the form of a Django Project. The following instructions describe how to setup the Django project into a local web server accessible from localhost in a Windows OS machine, assuming you have the administration rights.
 
 Prerequisite:
-A Python installation. Python version 3.11 has been used for developing this project.
+A Python installation. Python version 3.11 has been used for developing this project. The following commands must be applied in the same sequence as described. 
 
+1. Change to the root folder
+   **cd C:\**
 
-1. Check your Python installation    
-**C:\>python -V**    
-Python 3.11.3
-(In this case Python 3.11.3 has been installed)
+2. Check your Python installation    
+   **python -V**    
+   Python 3.11.3
+   (In this case Python 3.11.3 has been installed)
 
-2. Upgrade pip (package installer for Python)    
+3. Upgrade pip (package installer for Python)    
    **python -m pip install --upgrade pip**
 
-3. Create a folder named "scorepochs" in root directory C:\. This will contain the Django project    
+4. Create a folder named "scorepochs" in root directory C:\. This will contain the Django project    
    **mkdir scorepochs**
 
-4. Change the current folder    
+5. Change the current folder    
    **cd scorepochs**
 
-5. Create a Venv (Virtual Environment) named "venv"    
+6. Create a Venv (Virtual Environment) named "venv"    
    **python -m venv venv**
 
-6. Activate the Venv    
+7. Activate the Venv    
    **venv\Scripts\activate**
    The activation of the Venv is highlighted by prompt change as follow:    
    (venv) C:\scorepochs>
 
-7. Install Django    
+8. Install Django    
    **pip install django**
 
-8. Install the others package required by the project    
+9. Install the others package required by the project    
    **pip install mne**    
    **pip install plotly**    
    **pip install EDFlib-Python**        
 
-9. Create the Django project    
+10. Create the Django project    
     **django-admin startproject scorepochsprj**
 
-10. Create the Django App    
+11. Create the Django App    
     Change the current folder to Django project's folder (in which it should be manage.py)    
     **cd scorepochsprj**
     
@@ -72,12 +74,12 @@ Python 3.11.3
 
     Copy this folder and overwrite the c:\scorepochs\scorepochsprj folder, answering yes to overwrite every file too.
 
-13. The entire folder tree should now be appear as follow (some minor files has been omitted)
+14. The entire folder tree should now be appear as follow (some minor files has been omitted)
 
     ![image](https://github.com/RobertoOnidi/ScorepochsGUI/assets/145294028/673fa2e7-ccf3-4e02-bd95-fac682052a26)
 
-14. Start the web server    
-    Activate the Venv if not already activated (steps no. 4 and 6)    
+15. Start the web server    
+    Activate the Venv if not already activated (steps no. 5 and 7)    
 
     Change the current folder    
     **cd C:\scorepochs\scorepochsprj**    
@@ -85,4 +87,4 @@ Python 3.11.3
     Start the web server    
     **python manage.py runserver**
 
-15. Open a new window in a web browser, and go to http://127.0.0.1:8000/scorepochsapp
+16. Open a new window in a web browser, and go to http://127.0.0.1:8000/scorepochsapp
